@@ -2,10 +2,12 @@
 
 IComponent::~IComponent()
 {
+
 }
 
 void IComponent::Start()
 {
+
 }
 
 void IComponent::Render(sf::RenderWindow& window)

@@ -8,29 +8,26 @@ GameObject::GameObject(std::string name)
 
 GameObject::~GameObject() 
 {
-
-}
-
-void GameObject::AddComponent(const std::vector<IComponent> &componentsToAdd)
-{
-	for (auto component : componentsToAdd)
+	for (int i = 0; i< components.size();i++)
 	{
-		components.push_back(std::make_shared<IComponent>(component));
+		delete components[i];
+		components[i] = nullptr;
 	}
 }
 
+
 void GameObject::RenderComponent(sf::RenderWindow& window)
 {
-	for( auto ptr = components.begin(); ptr < components.end(); ++ptr)
+	for (auto& component : components)
 	{
-		ptr->get()->Render(window);
+		component->Render(window);
 	}
 }
 
 void GameObject::UpdateComponent(float deltaTime)
 {
-	for (auto ptr = components.begin(); ptr < components.end(); ++ptr)
+	for (auto& component : components)
 	{
-		ptr->get()->Update(deltaTime);
+		component->Update(deltaTime);
 	}
 }

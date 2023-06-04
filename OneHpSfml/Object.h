@@ -16,11 +16,10 @@ public:
 
 	//Component Logique
 	template<typename T>
-	void AddComponent(const T &componentToAdd);
+	void AddComponent(T *componentToAdd);
 
 	template<>
-	void AddComponent(const SpriteComponent& componentToAdd);
-	void AddComponent(const std::vector<IComponent> &componentToAdd);
+	void AddComponent(SpriteComponent* componentToAdd);
 
 	//Render all components
 	void RenderComponent(sf::RenderWindow& window);
@@ -36,21 +35,21 @@ protected:
 
 	//GameObject Parameter
 	std::string name;
-	std::vector<std::shared_ptr<IComponent>> components;
+	std::vector<IComponent*> components;
 
 private:
 };
 
 template<typename T>
-inline void GameObject::AddComponent(const T& componentToAdd)
+inline void GameObject::AddComponent(T* componentToAdd)
 {
-	components.push_back(std::make_unique<T>(componentToAdd));
+	components.push_back(componentToAdd);
 }
-
+	
 template<>
-inline void GameObject::AddComponent(const SpriteComponent& componentToAdd)
+inline void GameObject::AddComponent(SpriteComponent* componentToAdd)
 {
-	components.push_back(std::make_unique<SpriteComponent>(componentToAdd));
+	components.push_back(componentToAdd);
 }
 
 
