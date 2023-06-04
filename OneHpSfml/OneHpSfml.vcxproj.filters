@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichiers sources\Engine">
+      <UniqueIdentifier>{634339aa-65e6-4f23-8382-d4c80e874b11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Engine\Core">
+      <UniqueIdentifier>{f664ba8b-e9b8-4232-9ef6-7b7ba9dfab8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Engine\Core\Object">
+      <UniqueIdentifier>{0cde9cc7-ab80-4445-9c7e-ccd2ed95793b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Engine">
+      <UniqueIdentifier>{b72625ca-2f93-4068-b177-a89064717f20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Engine\Core">
+      <UniqueIdentifier>{b45b3470-7c6e-4906-81e7-13a6ce9c738d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Engine\Core\Object">
+      <UniqueIdentifier>{784526d3-e89f-4564-86f0-20ac3dad09ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Engine\Core\Component">
+      <UniqueIdentifier>{90712dea-7396-415a-a7b0-b210f92eb09c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Engine\Core\Component">
+      <UniqueIdentifier>{3cb7fd4f-613b-4eed-a2ed-1789306fe66d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Engine\Core\Component\UsableComponent">
+      <UniqueIdentifier>{def015d4-aeb8-411c-8752-e3abedb23334}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Engine\Core\Component\UsableComponent">
+      <UniqueIdentifier>{271dffff-ebcb-4eb7-8858-750a7ca1b99c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Object.cpp">
+      <Filter>Fichiers sources\Engine\Core\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Fichiers sources\Engine\Core\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="FactoryComponent.cpp">
+      <Filter>Fichiers sources\Engine\Core\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="OneHpSfml.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteComponent.cpp">
+      <Filter>Fichiers sources\Engine\Core\Component\UsableComponent</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Object.h">
+      <Filter>Fichiers d%27en-tête\Engine\Core\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Fichiers d%27en-tête\Engine\Core\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="FactoryComponent.h">
+      <Filter>Fichiers d%27en-tête\Engine\Core\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteComponent.h">
+      <Filter>Fichiers d%27en-tête\Engine\Core\Component\UsableComponent</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
