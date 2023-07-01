@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnimationComponent.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="FactoryComponent.cpp" />
     <ClCompile Include="InputComponent.cpp" />
@@ -155,6 +156,7 @@
     <ClCompile Include="SpriteComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimationComponent.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="FactoryComponent.h" />
     <ClInclude Include="InputComponent.h" />
