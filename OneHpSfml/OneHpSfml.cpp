@@ -12,13 +12,18 @@ int main()
     sf::Clock Time;
 
     GameObject objtest = GameObject(std::string("test"));
-    SpriteComponent* sprite = new SpriteComponent("../Assets/Sprites/Test/Debug.png");
+    SpriteComponent sprite = SpriteComponent("../Assets/Sprites/Test/Debug.png");
+    InputComponent input = InputComponent(PlayerInput(),0.2f);
     objtest.AddComponent(sprite);
+    objtest.AddComponent(input);
+
+
+    objtest.setPosition(100, 100);
+    objtest.SetDebugMode(true);
 
     ObjectManager objectsManager;
     objectsManager.AddGameObject(std::make_unique<GameObject>(objtest));
 
-    objtest.setPosition(100, 100);
 
     while (window.isOpen())
     {
@@ -27,11 +32,10 @@ int main()
         {
             if (event.type == sf::Event::Closed)
             {
-                
+                //delete sprite;
                 window.close();
             }
-                
-
+            objectsManager.UpdateEvent(event);
         }
 
         objectsManager.Update(Time.restart().asSeconds());

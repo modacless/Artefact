@@ -6,6 +6,8 @@
 #include <vector>
 #include "Component.h"
 #include "SpriteComponent.h"
+#include "InputComponent.h"
+
 
 class GameObject : public sf::Transformable
 {
@@ -14,22 +16,30 @@ public:
 	GameObject(std::string name);
 	~GameObject();
 
+	void Start();
+
 	//Component Logique
 	template<typename T>
-	void AddComponent(T *componentToAdd);
+	void AddComponent(T &componentToAdd);
 
 	template<>
-	void AddComponent(SpriteComponent* componentToAdd);
+	void AddComponent(SpriteComponent& componentToAdd);
+	template<>
+	void AddComponent(InputComponent& componentToAdd);
 
 	//Render all components
 	void RenderComponent(sf::RenderWindow& window);
 	//Update all components
 	void UpdateComponent(float deltaTime);
 
-	//GameObject Logique
+	//Update all event components
+	void UpdateEvent(sf::Event event);
+
+	//GameObject Logic
 	void SetPosition(sf::Vector2f position);
 
 	//GameObject Parameter
+	void SetDebugMode(bool debug);
 
 protected:
 
@@ -37,19 +47,28 @@ protected:
 	std::string name;
 	std::vector<IComponent*> components;
 
+	//Debug mode for object && component
+	bool isDebugMode = false;
+
 private:
+
 };
 
 template<typename T>
-inline void GameObject::AddComponent(T* componentToAdd)
+inline void GameObject::AddComponent(T& componentToAdd)
 {
-	components.push_back(componentToAdd);
+	components.push_back(new T(componentToAdd));
 }
 	
 template<>
-inline void GameObject::AddComponent(SpriteComponent* componentToAdd)
+inline void GameObject::AddComponent(SpriteComponent& componentToAdd)
 {
-	components.push_back(componentToAdd);
+	components.push_back(new SpriteComponent(componentToAdd));
 }
 
+template<>
+inline void GameObject::AddComponent(InputComponent& componentToAdd)
+{
+	components.push_back(new InputComponent(componentToAdd));
+}
 

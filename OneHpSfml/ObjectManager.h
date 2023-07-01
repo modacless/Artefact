@@ -11,6 +11,7 @@ public:
 	ObjectManager();
 	~ObjectManager();
 	void Update(float deltaTime);
+	void UpdateEvent(sf::Event event);
 	void Render(sf::RenderWindow& window);
 
 	//List Management

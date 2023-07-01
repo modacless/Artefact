@@ -147,16 +147,20 @@
   <ItemGroup>
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="FactoryComponent.cpp" />
+    <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="OneHpSfml.cpp" />
+    <ClCompile Include="ServerManager.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h" />
     <ClInclude Include="FactoryComponent.h" />
+    <ClInclude Include="InputComponent.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectManager.h" />
+    <ClInclude Include="ServerManager.h" />
     <ClInclude Include="SpriteComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

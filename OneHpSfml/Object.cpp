@@ -8,10 +8,14 @@ GameObject::GameObject(std::string name)
 
 GameObject::~GameObject() 
 {
-	for (int i = 0; i< components.size();i++)
+	components.clear();
+}
+
+void GameObject::Start()
+{
+	for (auto& component : components)
 	{
-		delete components[i];
-		components[i] = nullptr;
+		component->Start();
 	}
 }
 
@@ -22,6 +26,7 @@ void GameObject::RenderComponent(sf::RenderWindow& window)
 	{
 		component->Render(window);
 	}
+
 }
 
 void GameObject::UpdateComponent(float deltaTime)
@@ -29,5 +34,22 @@ void GameObject::UpdateComponent(float deltaTime)
 	for (auto& component : components)
 	{
 		component->Update(deltaTime);
+		if(isDebugMode)
+		{
+			component->Debug(deltaTime);
+		}
 	}
+}
+
+void GameObject::UpdateEvent(sf::Event event)
+{
+	for (auto& component : components)
+	{
+		component->UpdateEvent(event);
+	}
+}
+
+void GameObject::SetDebugMode(bool debug)
+{
+	isDebugMode = debug;
 }

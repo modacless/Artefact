@@ -9,10 +9,13 @@ class SpriteComponent : public IComponent
 {
 
 public:
+
 	SpriteComponent(std::string filepath);
 
 	//Rendering
 	void Render(sf::RenderWindow& window) override;
+
+
 
 private:
 

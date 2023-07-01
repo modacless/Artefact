@@ -7,7 +7,10 @@ ObjectManager::ObjectManager()
 
 ObjectManager::~ObjectManager()
 {
-	gameObjects.clear();
+	for(auto it = gameObjects.begin();it != gameObjects.end();++it)
+	{
+		it->reset();
+	}
 }
 
 void ObjectManager::Update(float deltaTime)
@@ -15,6 +18,14 @@ void ObjectManager::Update(float deltaTime)
 	for(const auto& gameObject : gameObjects)
 	{
 		gameObject->UpdateComponent(deltaTime);
+	}
+}
+
+void ObjectManager::UpdateEvent(sf::Event event)
+{
+	for(const auto& gameObject : gameObjects)
+	{
+		gameObject->UpdateEvent(event);
 	}
 }
 
@@ -28,5 +39,6 @@ void ObjectManager::Render(sf::RenderWindow& window)
 
 void ObjectManager::AddGameObject(std::unique_ptr<GameObject> gameObject)
 {
+	gameObject->Start();
 	gameObjects.emplace_back(std::move(gameObject));
 }
