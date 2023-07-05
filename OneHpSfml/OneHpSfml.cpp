@@ -3,11 +3,21 @@
 #include "Component.h"
 #include "SpriteComponent.h"
 #include "ObjectManager.h"
+#include "imGUI/imgui.h"
+#include "imGUI/imgui-SFML.h"
+
+
+void test()
+{
+    ImGui::Begin("Tool Test");
+    ImGui::End();
+}
 
 int main()
 {
+    //Create Window
     sf::RenderWindow window(sf::VideoMode(800, 800), "SFML works!");
-    sf::CircleShape shape(100.f);
+    ImGui::SFML::Init(window);
 
     sf::Clock Time;
 
@@ -30,6 +40,7 @@ int main()
         sf::Event event;
         while (window.pollEvent(event))
         {
+            ImGui::SFML::ProcessEvent(event);
             if (event.type == sf::Event::Closed)
             {
                 //delete sprite;
@@ -37,12 +48,20 @@ int main()
             }
             objectsManager.UpdateEvent(event);
         }
+        //Get the delta time
+        auto deltaTime = Time.restart();
 
-        objectsManager.Update(Time.restart().asSeconds());
+        //Update
+        ImGui::SFML::Update(window, deltaTime);
+        objectsManager.Update(deltaTime.asSeconds());
+        test();
+
+        //Render
         window.clear();
+        ImGui::SFML::Render(window);
         objectsManager.Render(window);
         window.display();
     }
-
+    ImGui::SFML::Shutdown();
     return 0;
 }

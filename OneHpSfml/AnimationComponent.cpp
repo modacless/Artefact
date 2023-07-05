@@ -17,3 +17,7 @@ void AnimationComponent::Render(sf::RenderWindow& window)
 {
 	
 }
+
+void AnimationComponent::Update(float deltaTime)
+{
+}

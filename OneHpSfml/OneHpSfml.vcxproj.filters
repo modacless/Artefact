@@ -49,6 +49,9 @@
     <Filter Include="Fichiers d%27en-tête\Server">
       <UniqueIdentifier>{af67485d-b8d5-4ca8-a28f-6c1bccf6b117}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\imGui">
+      <UniqueIdentifier>{f442fcb8-bb70-4844-ba67-d0d634d32698}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Object.cpp">
@@ -59,9 +62,6 @@
     </ClCompile>
     <ClCompile Include="FactoryComponent.cpp">
       <Filter>Fichiers sources\Engine\Core\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="OneHpSfml.cpp">
-      <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="SpriteComponent.cpp">
       <Filter>Fichiers sources\Engine\Core\Component\UsableComponent</Filter>
@@ -77,6 +77,24 @@
     </ClCompile>
     <ClCompile Include="AnimationComponent.cpp">
       <Filter>Fichiers sources\Engine\Core\Component\UsableComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="imGUI\imgui.cpp">
+      <Filter>Fichiers sources\imGui</Filter>
+    </ClCompile>
+    <ClCompile Include="imGUI\imgui_draw.cpp">
+      <Filter>Fichiers sources\imGui</Filter>
+    </ClCompile>
+    <ClCompile Include="imGUI\imgui_tables.cpp">
+      <Filter>Fichiers sources\imGui</Filter>
+    </ClCompile>
+    <ClCompile Include="imGUI\imgui_widgets.cpp">
+      <Filter>Fichiers sources\imGui</Filter>
+    </ClCompile>
+    <ClCompile Include="imGUI\imgui-SFML.cpp">
+      <Filter>Fichiers sources\imGui</Filter>
+    </ClCompile>
+    <ClCompile Include="OneHpSfml.cpp">
+      <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +121,33 @@
     </ClInclude>
     <ClInclude Include="AnimationComponent.h">
       <Filter>Fichiers d%27en-tête\Engine\Core\Component\UsableComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="imGUI\imconfig.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="imGUI\imconfig-SFML.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="imGUI\imgui.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="imGUI\imgui_internal.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="imGUI\imgui-SFML.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="imGUI\imgui-SFML_export.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="imGUI\imstb_rectpack.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="imGUI\imstb_textedit.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="imGUI\imstb_truetype.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
