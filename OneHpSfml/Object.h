@@ -41,6 +41,10 @@ public:
 	//GameObject Parameter
 	void SetDebugMode(bool debug);
 
+	//Get component
+	template<typename X>
+	X GetComponent(X &component);
+
 protected:
 
 	//GameObject Parameter
@@ -54,6 +58,7 @@ private:
 
 };
 
+//Add Component 
 template<typename T>
 inline void GameObject::AddComponent(T& componentToAdd)
 {
@@ -72,3 +77,18 @@ inline void GameObject::AddComponent(InputComponent& componentToAdd)
 	components.push_back(new InputComponent(componentToAdd));
 }
 
+//Get Component
+template<typename X>
+inline X GameObject::GetComponent(X& component) 
+{
+
+	/*for (auto it = components; it != components.end(), ++it)
+	{
+		if (std::string(typeid(component).name()) == typeid(it).name())
+		{
+			//return it;
+		}
+	}*/
+
+	return nullptr;
+}

@@ -7,6 +7,10 @@
 class Shape
 {
 public:
+
+	Shape() {};
+
+
 	struct rect
 	{
 		sf::Vector2f center;
@@ -21,7 +25,7 @@ public:
 			"3" ---	"2"
 		
 		*/
-	
+		rect(){}
 		rect(sf::Vector2f center, sf::Vector2f axisSize) {
 			points[0] = sf::Vector2f(-axisSize.x*0.5f, axisSize.y * 0.5f);
 			points[1] = sf::Vector2f(axisSize.x * 0.5f, axisSize.y * 0.5f);
@@ -36,11 +40,20 @@ public:
 	{
 		sf::Vector2f center;
 		float radius;
-
+		circle() 
+		{
+			center = sf::Vector2f(0, 0);
+			radius = 0;
+		}
+		circle(sf::Vector2f center, float radius) {
+			this->center = center;
+			this->radius = radius;
+		}
 	};
 
 	struct capsule
 	{
+		capsule(){}
 		sf::Vector2f center;
 		sf::Vector2f direction;
 		float height;

@@ -41,4 +41,6 @@ void ObjectManager::AddGameObject(std::unique_ptr<GameObject> gameObject)
 {
 	gameObject->Start();
 	gameObjects.emplace_back(std::move(gameObject));
+
+	//if(gameObject->GetComponent(Collision::))
 }

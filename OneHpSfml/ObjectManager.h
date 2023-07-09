@@ -2,6 +2,7 @@
 #include <list>
 #include <memory>
 #include "Object.h"
+#include "CollisionManager.h";
 
 class ObjectManager
 {
@@ -23,6 +24,7 @@ public:
 protected:
 
 	std::list<std::unique_ptr<GameObject>> gameObjects;
+	CollisionManager* collisionManager;
 
 private:
 };

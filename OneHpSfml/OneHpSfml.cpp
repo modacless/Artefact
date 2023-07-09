@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "Object.h"
 #include "Component.h"
+#include "Shape.h"
 #include "SpriteComponent.h"
 #include "ObjectManager.h"
 #include "imGUI/imgui.h"
@@ -27,9 +28,10 @@ int main()
     objtest.AddComponent(sprite);
     objtest.AddComponent(input);
 
-
     objtest.setPosition(100, 100);
     objtest.SetDebugMode(true);
+
+    Shape::circle circle_a = Shape::circle(objtest.getPosition(), 0.5f);
 
     ObjectManager objectsManager;
     objectsManager.AddGameObject(std::make_unique<GameObject>(objtest));
