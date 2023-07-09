@@ -116,13 +116,22 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+<<<<<<< HEAD
       <AdditionalIncludeDirectories>$(SolutionDir)\imGUI;C:\Games and Art\sdk\SFML-2.5.1\include</AdditionalIncludeDirectories>
+=======
+      <AdditionalIncludeDirectories>C:\Users\theob\Documents\SFML-2.5.1\include</AdditionalIncludeDirectories>
+>>>>>>> theo
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+<<<<<<< HEAD
       <AdditionalLibraryDirectories>C:\Games and Art\sdk\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;sfml-audio-d.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;sfml-network-d.lib;ws2_32.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+=======
+      <AdditionalLibraryDirectories>C:\Users\theob\Documents\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;sfml-audio-d.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;sfml-network-d.lib;ws2_32.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+>>>>>>> theo
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -157,7 +166,11 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="OneHpSfml.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="ServerManager.cpp" />
+=======
+    <ClCompile Include="Shape.cpp" />
+>>>>>>> theo
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="TileMapParser.cpp" />
   </ItemGroup>
@@ -179,7 +192,11 @@
     <ClInclude Include="nlohmann\json_fwd.hpp" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectManager.h" />
+<<<<<<< HEAD
     <ClInclude Include="ServerManager.h" />
+=======
+    <ClInclude Include="Shape.h" />
+>>>>>>> theo
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="TileMapParser.h" />
   </ItemGroup>

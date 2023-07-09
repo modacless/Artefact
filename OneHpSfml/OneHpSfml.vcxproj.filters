@@ -75,6 +75,7 @@
     <ClCompile Include="ObjectManager.cpp">
       <Filter>Fichiers sources\Engine\Core\Object</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="InputComponent.cpp">
       <Filter>Fichiers sources\Engine\Core\Component\UsableComponent</Filter>
     </ClCompile>
@@ -104,6 +105,10 @@
     </ClCompile>
     <ClCompile Include="TileMapParser.cpp">
       <Filter>Fichiers sources\Engine\JsonParser</Filter>
+=======
+    <ClCompile Include="Shape.cpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+>>>>>>> theo
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +127,7 @@
     <ClInclude Include="ObjectManager.h">
       <Filter>Fichiers d%27en-tête\Engine\Core\Object</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="InputComponent.h">
       <Filter>Fichiers d%27en-tête\Engine\Core\Component\UsableComponent</Filter>
     </ClInclude>
@@ -167,5 +173,10 @@
     <ClInclude Include="TileMapParser.h">
       <Filter>Fichiers d%27en-tête\JsonParser</Filter>
     </ClInclude>
+=======
+    <ClInclude Include="Shape.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+>>>>>>> theo
   </ItemGroup>
 </Project>
