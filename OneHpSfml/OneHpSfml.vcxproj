@@ -159,6 +159,7 @@
     <ClCompile Include="OneHpSfml.cpp" />
     <ClCompile Include="ServerManager.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
+    <ClCompile Include="TileMapParser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimationComponent.h" />
@@ -174,10 +175,13 @@
     <ClInclude Include="imGUI\imstb_textedit.h" />
     <ClInclude Include="imGUI\imstb_truetype.h" />
     <ClInclude Include="InputComponent.h" />
+    <ClInclude Include="nlohmann\json.hpp" />
+    <ClInclude Include="nlohmann\json_fwd.hpp" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="ServerManager.h" />
     <ClInclude Include="SpriteComponent.h" />
+    <ClInclude Include="TileMapParser.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

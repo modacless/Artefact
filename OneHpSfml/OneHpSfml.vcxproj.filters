@@ -52,6 +52,12 @@
     <Filter Include="Fichiers sources\imGui">
       <UniqueIdentifier>{f442fcb8-bb70-4844-ba67-d0d634d32698}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Engine\JsonParser">
+      <UniqueIdentifier>{329c3e90-c44e-4144-8798-496c46fa2795}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\JsonParser">
+      <UniqueIdentifier>{56487aac-cac8-4312-b8af-c89b53b64433}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Object.cpp">
@@ -95,6 +101,9 @@
     </ClCompile>
     <ClCompile Include="OneHpSfml.cpp">
       <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="TileMapParser.cpp">
+      <Filter>Fichiers sources\Engine\JsonParser</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +157,15 @@
     </ClInclude>
     <ClInclude Include="imGUI\imstb_truetype.h">
       <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="nlohmann\json.hpp">
+      <Filter>Fichiers d%27en-tête\JsonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="nlohmann\json_fwd.hpp">
+      <Filter>Fichiers d%27en-tête\JsonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMapParser.h">
+      <Filter>Fichiers d%27en-tête\JsonParser</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
