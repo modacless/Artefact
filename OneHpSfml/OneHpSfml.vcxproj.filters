@@ -63,6 +63,9 @@
     <ClCompile Include="ObjectManager.cpp">
       <Filter>Fichiers sources\Engine\Core\Object</Filter>
     </ClCompile>
+    <ClCompile Include="Shape.cpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Object.h">
@@ -79,6 +82,9 @@
     </ClInclude>
     <ClInclude Include="ObjectManager.h">
       <Filter>Fichiers d%27en-tête\Engine\Core\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
