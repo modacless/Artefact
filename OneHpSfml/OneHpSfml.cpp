@@ -32,6 +32,8 @@ int main()
     objtest.SetDebugMode(true);
 
     Shape::circle circle_a = Shape::circle(objtest.getPosition(), 0.5f);
+    CollisionComponent collison = CollisionComponent(circle_a);
+    objtest.AddComponent(collison);
 
     ObjectManager objectsManager;
     objectsManager.AddGameObject(std::make_unique<GameObject>(objtest));

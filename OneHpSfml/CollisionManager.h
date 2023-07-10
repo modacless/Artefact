@@ -1,15 +1,15 @@
 #pragma once
 
 #include "Object.h"
-#include "Collision.h"
+#include "CollisionComponent.h"
 
 class CollisionManager
 {
 public:
 	CollisionManager() {}
-	std::vector<Collision> allCollision;
+	std::vector<CollisionComponent*> allCollision;
 
-	void addCollision(Collision collision);
-	void removeCollision(Collision collision);
+	void addCollision(CollisionComponent* collision);
+	void removeCollision(CollisionComponent* collision);
 };
 

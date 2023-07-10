@@ -7,6 +7,7 @@
 #include "Component.h"
 #include "SpriteComponent.h"
 #include "InputComponent.h"
+#include "CollisionComponent.h"
 
 
 class GameObject : public sf::Transformable
@@ -26,6 +27,8 @@ public:
 	void AddComponent(SpriteComponent& componentToAdd);
 	template<>
 	void AddComponent(InputComponent& componentToAdd);
+	template<>
+	void AddComponent(CollisionComponent& componentToAdd);
 
 	//Render all components
 	void RenderComponent(sf::RenderWindow& window);
@@ -42,8 +45,19 @@ public:
 	void SetDebugMode(bool debug);
 
 	//Get component
-	template<typename X>
-	X GetComponent(X &component);
+	template<typename C>
+	C* GetComponent()
+	{
+		for (std::vector<IComponent*>::iterator it = components.begin(); it != components.end(); ++it)
+		{
+			if(typeid(C) == typeid(CollisionComponent))
+			{
+				return static_cast<C*>((*it));
+			}
+		}
+
+		return nullptr;
+	};
 
 protected:
 
@@ -77,18 +91,9 @@ inline void GameObject::AddComponent(InputComponent& componentToAdd)
 	components.push_back(new InputComponent(componentToAdd));
 }
 
-//Get Component
-template<typename X>
-inline X GameObject::GetComponent(X& component) 
+template<>
+inline void GameObject::AddComponent(CollisionComponent& componentToAdd)
 {
-
-	/*for (auto it = components; it != components.end(), ++it)
-	{
-		if (std::string(typeid(component).name()) == typeid(it).name())
-		{
-			//return it;
-		}
-	}*/
-
-	return nullptr;
+	components.push_back(new CollisionComponent(componentToAdd));
 }
+

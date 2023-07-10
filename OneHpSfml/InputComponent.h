@@ -12,6 +12,7 @@ enum class EInputType
 
 class InputBuffer
 {
+	
 public:
 	sf::Keyboard::Key key;
 	EInputType inputType;

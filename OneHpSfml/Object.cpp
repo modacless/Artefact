@@ -53,3 +53,4 @@ void GameObject::SetDebugMode(bool debug)
 {
 	isDebugMode = debug;
 }
+

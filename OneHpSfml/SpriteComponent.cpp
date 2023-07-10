@@ -1,5 +1,6 @@
 #include "SpriteComponent.h"
 
+
 SpriteComponent::SpriteComponent(std::string filepath)
 {
 	texture.loadFromFile(filepath);

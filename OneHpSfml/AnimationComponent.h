@@ -4,6 +4,7 @@
 class AnimationComponent : IComponent
 {
 
+
 public:
 	AnimationComponent(std::string filepath, int rowOfAnimation , int columnOfAnimation, int pixelSizeXText, int pixelSizeYText, float speed);
 	void Render(sf::RenderWindow& window) override;

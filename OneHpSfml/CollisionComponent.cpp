@@ -1,43 +1,42 @@
-#include "Collision.h"
+#include "CollisionComponent.h"
 
-
-Collision::Collision(Shape::circle circle)
+CollisionComponent::CollisionComponent(Shape::circle circle)
 {
 	this->circle = circle;
 	shape = new Shape();
 	shapePossibility = ShapePossibility::circle;
 }
 
-Collision::Collision(Shape::rect rect)
+CollisionComponent::CollisionComponent(Shape::rect rect)
 {
 	this->rect = rect;
 	shape = new Shape();
 	shapePossibility = ShapePossibility::rect;
 }
 
-Collision::Collision(Shape::capsule capsule)
+CollisionComponent::CollisionComponent(Shape::capsule capsule)
 {
 	this->capsule = capsule;
 	shape = new Shape();
 	shapePossibility = ShapePossibility::capsule;
 }
 
-Collision::~Collision()
+CollisionComponent::~CollisionComponent()
 {
 	delete shape;
 	shape = nullptr;
 }
 
-void Collision::Start()
+void CollisionComponent::Start()
 {
 }
 
-void Collision::Render(sf::RenderWindow& window)
+void CollisionComponent::Render(sf::RenderWindow& window)
 {
 
 }
 
-void Collision::Update(float deltaTime)
+void CollisionComponent::Update(float deltaTime)
 {
 	switch (shapePossibility) {
 	case ShapePossibility::circle:
