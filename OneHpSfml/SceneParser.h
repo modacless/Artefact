@@ -15,6 +15,11 @@ public:
 		sceneName = name;
 	};
 
+	~SceneDatas() 
+	{
+		delete collisionTile;
+	}
+
 	std::string GetSceneName() { return sceneName; };
 	void SetSceneName(std::string sceneName) { this->sceneName = sceneName; };
 
@@ -24,8 +29,29 @@ public:
 	sf::Vector2<int> tileSize;
 
 	std::vector<TileMap> tilesOfScene;
-	
-	int* sceneTileNumber;
+
+	struct CollisionTile
+	{
+		int gridSize; //Size of collision
+		int SceneWidthPerTile; //Size of map per grid size tile : gridSize * SceneWidth = size of 1 grid * number of width grid
+		int ScenHeightPerTile;
+		int* collisionMap;//Where collision belongs
+
+		CollisionTile() 
+		{ 
+			gridSize = 0; SceneWidthPerTile = 0; ScenHeightPerTile = 0; 
+		};
+
+		CollisionTile(int* _collisionMap, int& _gridSize, int& _SceneWidthPerTile, int& _ScenHeightPerTile)
+		{
+			collisionMap = _collisionMap;
+			gridSize = _gridSize;
+			SceneWidthPerTile = _SceneWidthPerTile;
+			ScenHeightPerTile = _ScenHeightPerTile;
+
+		}
+
+	} *collisionTile;
 
 private:
 	std::string sceneName;
@@ -40,11 +66,10 @@ public:
 	SceneParser(std::string filePath);
 	~SceneParser();
 
-	std::list<SceneDatas> allScenesDatas;
+	std::list<SceneDatas*> allScenesDatas;
 
 protected:
 
-	int* tileMap; //To Change
 
 
 private:

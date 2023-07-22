@@ -8,12 +8,13 @@ SceneParser::SceneParser(std::string filePath)
 	std::ifstream levelFile(filePath);
 	const json levelData = json::parse(levelFile);
 
+	allScenesDatas = std::list< SceneDatas*>();
 
 	if (levelData != nullptr) 
 	{
-		SceneDatas sceneDatas = SceneDatas(levelData.at("identifier"));
-		sceneDatas.scenePosition = sf::Vector2<float>(levelData.at("worldX"), levelData.at("worldY"));
-		sceneDatas.sceneSize = sf::Vector2<int>(levelData.at("pxWid"), levelData.at("pxHei"));
+		SceneDatas* sceneDatas = new SceneDatas(levelData.at("identifier"));
+		sceneDatas->scenePosition = sf::Vector2<float>(levelData.at("worldX"), levelData.at("worldY"));
+		sceneDatas->sceneSize = sf::Vector2<int>(levelData.at("pxWid"), levelData.at("pxHei"));
 
 		//std::cout << sceneDatas.GetSceneName();
 		//std::cout << sceneDatas.sceneSize.x << " " << sceneDatas.sceneSize.y << "\n";
@@ -27,6 +28,26 @@ SceneParser::SceneParser(std::string filePath)
 
 		for(auto elem : levelData.at("layerInstances"))
 		{
+
+			if(elem.at("__identifier") == "Static_Collision")
+			{
+				int cWid = elem.at("__cWid");
+				int cHei = elem.at("__cHei");
+
+				int gridSize = elem.at("__gridSize");
+
+				int intGridCsvSize = cWid * cHei;
+				int* intGridCsv = new int[intGridCsvSize];
+				
+				for(int i = 0; i< intGridCsvSize; i++)
+				{
+					intGridCsv[i] = elem.at("intGridCsv").at(i);
+				}
+
+				sceneDatas->collisionTile = new SceneDatas::CollisionTile(intGridCsv, gridSize, cWid, cHei);
+			}
+
+
 			if(elem.at("__type") == "Tiles")
 			{
 
@@ -51,7 +72,7 @@ SceneParser::SceneParser(std::string filePath)
 					tileMap[zer] = 0;
 				}
 
-				sceneDatas.tileSize = sf::Vector2<int>(cWid, cHei);
+				sceneDatas->tileSize = sf::Vector2<int>(cWid, cHei);
 
 				//Fill with tile number
 				for(auto tile : elem.at("gridTiles"))
@@ -66,15 +87,12 @@ SceneParser::SceneParser(std::string filePath)
 				}
 				TileMap tilemap =TileMap();
 				tilemap.Load(pathOfTile, sf::Vector2<int>(gridSize, gridSize), sf::Vector2<int>(cWid, cHei), tileMap);
-				sceneDatas.tilesOfScene.push_back(tilemap);
+				sceneDatas->tilesOfScene.push_back(tilemap);
 			}
 
-				delete tileMap;
 		}
 
 		allScenesDatas.push_back(sceneDatas);
-
-
 		
 	}else
 	{
@@ -84,7 +102,7 @@ SceneParser::SceneParser(std::string filePath)
 
 SceneParser::~SceneParser()
 {
-	delete tileMap;
-	allScenesDatas.clear();
+	while (!allScenesDatas.empty()) delete allScenesDatas.front(), allScenesDatas.pop_front();
+	
 }
 

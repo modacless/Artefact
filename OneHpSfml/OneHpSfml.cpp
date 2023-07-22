@@ -23,7 +23,7 @@ int main()
 
     sf::Clock Time;
 
-    Scene scene = Scene("../Levels/Devs/FirstMap/Level_0.ldtkl");
+    Scene* scene = new Scene("../Levels/Devs/FirstMap/Level_0.ldtkl");
 
     GameObject objtest = GameObject(std::string("test"));
     SpriteComponent sprite = SpriteComponent("../Assets/Sprites/Test/Debug.png");
@@ -65,13 +65,15 @@ int main()
 
         //Render
         window.clear();
-        scene.SceneDraw(window);
+        scene->SceneDraw(window);
         ImGui::SFML::Render(window);
         objectsManager.Render(window);
 
         window.display();
     }
     ImGui::SFML::Shutdown();
+
+    delete scene;
 
     return 0;
 }
