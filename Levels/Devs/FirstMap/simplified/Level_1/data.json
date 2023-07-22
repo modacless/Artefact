@@ -1,0 +1,34 @@
+{
+	"identifier": "Level_1",
+	"uniqueIdentifer": "4f569d80-1460-11ee-a1ef-355ba312a1f1",
+	"x": 0,
+	"y": 512,
+	"width": 512,
+	"height": 512,
+	"bgColor": "#696A79",
+	"neighbourLevels": [
+		{
+			"levelIid": "31e90100-1460-11ee-8a39-2da82f460e95",
+			"dir": "n"
+		}
+	],
+	"customFields" : {},
+	"layers": [
+		"Tiles.png"
+	],
+	"entities": {
+		"NextStage": [
+			{
+				"id": "NextStage",
+				"iid": "dcdacb90-1460-11ee-a1ef-8dbf92ee607c",
+				"layer": "Interractible",
+				"x": 288,
+				"y": 448,
+				"width": 32,
+				"height": 32,
+				"color": 14120515,
+				"customFields" : {}
+			}
+		]
+	}
+}

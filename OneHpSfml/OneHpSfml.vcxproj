@@ -162,10 +162,13 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="OneHpSfml.cpp" />
+    <ClCompile Include="PoorTools.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneParser.cpp" />
     <ClCompile Include="ServerManager.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
-    <ClCompile Include="TileMapParser.cpp" />
+    <ClCompile Include="TileMap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimationComponent.h" />
@@ -187,10 +190,13 @@
     <ClInclude Include="nlohmann\json_fwd.hpp" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectManager.h" />
+    <ClInclude Include="PoorTools.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneParser.h" />
     <ClInclude Include="ServerManager.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="SpriteComponent.h" />
-    <ClInclude Include="TileMapParser.h" />
+    <ClInclude Include="TileMap.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

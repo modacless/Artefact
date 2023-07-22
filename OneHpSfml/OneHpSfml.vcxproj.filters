@@ -55,8 +55,17 @@
     <Filter Include="Fichiers sources\Engine\JsonParser">
       <UniqueIdentifier>{329c3e90-c44e-4144-8798-496c46fa2795}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\JsonParser">
+    <Filter Include="Fichiers d%27en-tête\ImGui">
+      <UniqueIdentifier>{609ea4dc-d9c9-4d08-8541-637541fb23dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Engine\JsonParser">
       <UniqueIdentifier>{56487aac-cac8-4312-b8af-c89b53b64433}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Engine\Tools">
+      <UniqueIdentifier>{11a7731c-3483-4c7c-a0b6-0187440b778e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Tools">
+      <UniqueIdentifier>{f16d6e73-c160-4072-9834-6f3a218fd629}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -102,9 +111,6 @@
     <ClCompile Include="OneHpSfml.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="TileMapParser.cpp">
-      <Filter>Fichiers sources\Engine\JsonParser</Filter>
-    </ClCompile>
     <ClCompile Include="CollisionManager.cpp">
       <Filter>Fichiers sources\Engine\Core\Object</Filter>
     </ClCompile>
@@ -113,6 +119,18 @@
     </ClCompile>
     <ClCompile Include="Shape.cpp">
       <Filter>Fichiers sources\Engine\Core\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneParser.cpp">
+      <Filter>Fichiers sources\Engine\JsonParser</Filter>
+    </ClCompile>
+    <ClCompile Include="TileMap.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="PoorTools.cpp">
+      <Filter>Fichiers sources\Tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -140,41 +158,11 @@
     <ClInclude Include="AnimationComponent.h">
       <Filter>Fichiers d%27en-tête\Engine\Core\Component\UsableComponent</Filter>
     </ClInclude>
-    <ClInclude Include="imGUI\imconfig.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="imGUI\imconfig-SFML.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="imGUI\imgui.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="imGUI\imgui_internal.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="imGUI\imgui-SFML.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="imGUI\imgui-SFML_export.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="imGUI\imstb_rectpack.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="imGUI\imstb_textedit.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="imGUI\imstb_truetype.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="nlohmann\json.hpp">
-      <Filter>Fichiers d%27en-tête\JsonParser</Filter>
+      <Filter>Fichiers d%27en-tête\Engine\JsonParser</Filter>
     </ClInclude>
     <ClInclude Include="nlohmann\json_fwd.hpp">
-      <Filter>Fichiers d%27en-tête\JsonParser</Filter>
-    </ClInclude>
-    <ClInclude Include="TileMapParser.h">
-      <Filter>Fichiers d%27en-tête\JsonParser</Filter>
+      <Filter>Fichiers d%27en-tête\Engine\JsonParser</Filter>
     </ClInclude>
     <ClInclude Include="CollisionManager.h">
       <Filter>Fichiers d%27en-tête</Filter>
@@ -184,6 +172,45 @@
     </ClInclude>
     <ClInclude Include="CollisionComponent.h">
       <Filter>Fichiers d%27en-tête\Engine\Core\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="imGUI\imconfig.h">
+      <Filter>Fichiers d%27en-tête\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="imGUI\imconfig-SFML.h">
+      <Filter>Fichiers d%27en-tête\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="imGUI\imgui.h">
+      <Filter>Fichiers d%27en-tête\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="imGUI\imgui_internal.h">
+      <Filter>Fichiers d%27en-tête\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="imGUI\imgui-SFML.h">
+      <Filter>Fichiers d%27en-tête\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="imGUI\imgui-SFML_export.h">
+      <Filter>Fichiers d%27en-tête\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="imGUI\imstb_rectpack.h">
+      <Filter>Fichiers d%27en-tête\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="imGUI\imstb_textedit.h">
+      <Filter>Fichiers d%27en-tête\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="imGUI\imstb_truetype.h">
+      <Filter>Fichiers d%27en-tête\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneParser.h">
+      <Filter>Fichiers d%27en-tête\Engine\JsonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMap.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="PoorTools.h">
+      <Filter>Fichiers d%27en-tête\Engine\Tools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -6,6 +6,7 @@
 #include "ObjectManager.h"
 #include "imGUI/imgui.h"
 #include "imGUI/imgui-SFML.h"
+#include "Scene.h"
 
 
 void test()
@@ -17,16 +18,18 @@ void test()
 int main()
 {
     //Create Window
-    sf::RenderWindow window(sf::VideoMode(800, 800), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode(512, 512), "SFML works!");
     ImGui::SFML::Init(window);
 
     sf::Clock Time;
 
+    Scene scene = Scene("../Levels/Devs/FirstMap/Level_0.ldtkl");
+
     GameObject objtest = GameObject(std::string("test"));
     SpriteComponent sprite = SpriteComponent("../Assets/Sprites/Test/Debug.png");
-    InputComponent input = InputComponent(PlayerInput(),0.2f);
+    //InputComponent input = InputComponent(PlayerInput(),0.2f);
     objtest.AddComponent(sprite);
-    objtest.AddComponent(input);
+    //objtest.AddComponent(input);
 
     objtest.setPosition(100, 100);
     objtest.SetDebugMode(true);
@@ -62,10 +65,13 @@ int main()
 
         //Render
         window.clear();
+        scene.SceneDraw(window);
         ImGui::SFML::Render(window);
         objectsManager.Render(window);
+
         window.display();
     }
     ImGui::SFML::Shutdown();
+
     return 0;
 }
