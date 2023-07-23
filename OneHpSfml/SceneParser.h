@@ -30,25 +30,24 @@ public:
 
 	std::vector<TileMap> tilesOfScene;
 
-	struct CollisionTile
+	struct DataTileCollisions
 	{
 		int gridSize; //Size of collision
 		int SceneWidthPerTile; //Size of map per grid size tile : gridSize * SceneWidth = size of 1 grid * number of width grid
 		int ScenHeightPerTile;
 		int* collisionMap;//Where collision belongs
 
-		CollisionTile() 
+		DataTileCollisions() 
 		{ 
 			gridSize = 0; SceneWidthPerTile = 0; ScenHeightPerTile = 0; 
 		};
 
-		CollisionTile(int* _collisionMap, int& _gridSize, int& _SceneWidthPerTile, int& _ScenHeightPerTile)
+		DataTileCollisions(int* _collisionMap, int& _gridSize, int& _SceneWidthPerTile, int& _ScenHeightPerTile)
 		{
 			collisionMap = _collisionMap;
 			gridSize = _gridSize;
 			SceneWidthPerTile = _SceneWidthPerTile;
 			ScenHeightPerTile = _ScenHeightPerTile;
-
 		}
 
 	} *collisionTile;

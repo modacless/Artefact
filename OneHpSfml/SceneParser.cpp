@@ -44,7 +44,7 @@ SceneParser::SceneParser(std::string filePath)
 					intGridCsv[i] = elem.at("intGridCsv").at(i);
 				}
 
-				sceneDatas->collisionTile = new SceneDatas::CollisionTile(intGridCsv, gridSize, cWid, cHei);
+				sceneDatas->collisionTile = new SceneDatas::DataTileCollisions(intGridCsv, gridSize, cWid, cHei);
 			}
 
 

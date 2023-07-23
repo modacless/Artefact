@@ -67,6 +67,12 @@
     <Filter Include="Fichiers sources\Tools">
       <UniqueIdentifier>{f16d6e73-c160-4072-9834-6f3a218fd629}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Engine\Core\Object\Usable">
+      <UniqueIdentifier>{31b7010c-8261-4c7e-b8e2-5b7295f74dd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Engine\Core\Object\Usable">
+      <UniqueIdentifier>{e20c1558-1f13-4230-b876-ee846521fe92}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Object.cpp">
@@ -131,6 +137,9 @@
     </ClCompile>
     <ClCompile Include="PoorTools.cpp">
       <Filter>Fichiers sources\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="TileObjectCollision.cpp">
+      <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -211,6 +220,9 @@
     </ClInclude>
     <ClInclude Include="PoorTools.h">
       <Filter>Fichiers d%27en-tête\Engine\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="TileObjectCollision.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

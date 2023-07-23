@@ -1,22 +1,13 @@
 #include "ObjectManager.h"
 
 #include <iostream>
+#include "TileObjectCollision.h"
 
 ObjectManager::ObjectManager()
 {
 	collisionManager = new CollisionManager();
 }
 
-ObjectManager::~ObjectManager()
-{
-	for(auto it = gameObjects.begin();it != gameObjects.end();++it)
-	{
-		it->reset();
-	}
-
-	delete collisionManager;
-	collisionManager = nullptr;
-}
 
 void ObjectManager::Update(float deltaTime)
 {
@@ -42,16 +33,5 @@ void ObjectManager::Render(sf::RenderWindow& window)
 	}
 }
 
-void ObjectManager::AddGameObject(std::unique_ptr<GameObject> gameObject)
-{
-	const auto collisionComp = gameObject->GetComponent<CollisionComponent>();
-	if(collisionComp != nullptr)
-	{
-		collisionManager->addCollision(collisionComp);
-		std::cout << "Add a collision !";
 
-	}
 
-	gameObject->Start();
-	gameObjects.emplace_back(std::move(gameObject));
-}

@@ -169,6 +169,7 @@
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="TileMap.cpp" />
+    <ClCompile Include="TileObjectCollision.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimationComponent.h" />
@@ -197,6 +198,7 @@
     <ClInclude Include="Shape.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="TileMap.h" />
+    <ClInclude Include="TileObjectCollision.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
