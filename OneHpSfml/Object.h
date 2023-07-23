@@ -15,13 +15,16 @@ class GameObject : public sf::Transformable
 public:
 
 	GameObject(std::string name, sf::Vector2f position);
-	~GameObject();
+	~GameObject() 
+	{
+		components.clear();
+	};
 
 	void Start();
 
 	//Component Logique
 	template<typename T>
-	void AddComponent(T &componentToAdd);
+	void AddComponent(T& componentToAdd);
 
 	template<>
 	void AddComponent(SpriteComponent& componentToAdd);

@@ -1,15 +1,23 @@
 #include "TileObjectCollision.h"
+#include <iostream>
 
 TileObjectCollision::TileObjectCollision(std::string name, sf::Vector2f position) : GameObject(name, position)
 {
-	Shape::rect rect = Shape::rect(position, sf::Vector2f(32, 32));
-	CollisionComponent collision1 = CollisionComponent(rect);
-	this->AddComponent(collision1);
+	shape = new Shape();
+	sf::Vector2f axis = sf::Vector2f(32, 32);
+	shape->rectangle = new Shape::rect(position, axis);
+	collisonComponent = new CollisionComponent(shape); //maybe memory leak
+	this->AddComponent(*collisonComponent);
 	SpriteComponent sprite1 = SpriteComponent("../Assets/Sprites/Test/Collisiontest.png");
 	this->AddComponent(sprite1);
 }
 
 TileObjectCollision::~TileObjectCollision() 
 {
-	//components.clear();
+	//delete shape;
+	//shape = nullptr;
+
+	components.clear();
+
+
 }

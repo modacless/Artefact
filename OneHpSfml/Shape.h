@@ -9,6 +9,11 @@ class Shape
 public:
 
 	Shape() {};
+	~Shape()
+	{
+		//if(rectangle != nullptr)
+			//delete rectangle;
+	}
 
 
 	struct rect
@@ -19,7 +24,7 @@ public:
 
 		//std::vector<sf::Vector2f> points;
 
-		sf::Vector2f* points;
+		sf::Vector2f points[4];
 		
 		/*		
 			"0"----"1"
@@ -29,10 +34,8 @@ public:
 		*/
 
 		rect() {};
-		rect(sf::Vector2f center, sf::Vector2f axisSize) {
-
-			points = new sf::Vector2f[4]();
-			this->center = center;
+		rect(sf::Vector2f& _center, sf::Vector2f& axisSize) {
+			this->center = _center;
 
 			points[0] = sf::Vector2f(center.x-axisSize.x * 0.5f, center.y+ axisSize.y * 0.5f);
 			points[1] = sf::Vector2f(center.x+axisSize.x * 0.5f, center.x+axisSize.y * 0.5f);
@@ -43,20 +46,20 @@ public:
 
 		~rect()
 		{
-			//delete points;
+			//delete[4] points;
 		}
 
 
-		void updateRectangle(sf::Vector2f center)
+		void updateRectangle(sf::Vector2f _center)
 		{
-			this->center = center;
+			this->center = _center;
 			points[0] = sf::Vector2f(center.x-axisSize.x * 0.5f, center.y+ axisSize.y * 0.5f);
 			points[1] = sf::Vector2f(center.x+axisSize.x * 0.5f, center.x+axisSize.y * 0.5f);
 			points[2] = sf::Vector2f(center.x+axisSize.x * 0.5f, center.x -axisSize.y * 0.5f);
 			points[3] = sf::Vector2f(center.x-axisSize.x * 0.5f, center.x -axisSize.y * 0.5f);
 		}
 
-	};
+	} *rectangle;
 
 	struct circle
 	{

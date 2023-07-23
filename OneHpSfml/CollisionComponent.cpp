@@ -1,42 +1,39 @@
 #include "CollisionComponent.h"
 #include "Object.h"
 
+CollisionComponent::CollisionComponent(Shape* shape)
+{
+	this->shape = shape;
+	
+	if(shape->rectangle != nullptr)
+	{
+		shapePossibility = ShapePossibility::rect;
+		
+	}
+
+}
+
 CollisionComponent::CollisionComponent(Shape::circle& circle)
 {
-	this->circle = new Shape::circle(circle);
-	shape = new Shape();
+	//this->circle = new Shape::circle(circle);
 	shapePossibility = ShapePossibility::circle;
 }
 
-CollisionComponent::CollisionComponent(Shape::rect& rect)
+CollisionComponent::CollisionComponent(Shape::rect* rect)
 {
-	this->rect = new Shape::rect(rect);
-	shape = new Shape();
+	shape->rectangle = rect;
 	shapePossibility = ShapePossibility::rect;
 }
 
 CollisionComponent::CollisionComponent(Shape::capsule& capsule)
 {
-	this->capsule = new Shape::capsule(capsule);
-	shape = new Shape();
+	//this->capsule = new Shape::capsule(capsule);
 	shapePossibility = ShapePossibility::capsule;
 }
 
 CollisionComponent::~CollisionComponent()
 {
-	/*delete shape;
-	shape = nullptr;
-
-	if (circle != nullptr)
-		delete circle;
-
-
-	if (rect != nullptr)
-		delete rect;
-
-
-	if (capsule != nullptr)
-		delete capsule;*/
+	delete shape;
 }
 
 void CollisionComponent::Start()
@@ -57,7 +54,7 @@ void CollisionComponent::Update(float deltaTime)
 	case ShapePossibility::circle:
 		break;
 	case ShapePossibility::rect:
-		rect->updateRectangle(parentObject->getPosition());
+		shape->rectangle->updateRectangle(parentObject->getPosition());
 		break;
 	case ShapePossibility::capsule:
 		break;
