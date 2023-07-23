@@ -17,9 +17,9 @@ class CollisionComponent : public IComponent
 
 public:
 	CollisionComponent() {};
-	CollisionComponent(Shape::circle circle);
-	CollisionComponent(Shape::rect* rect);
-	CollisionComponent(Shape::capsule capsule); 
+	CollisionComponent(Shape::circle& circle);
+	CollisionComponent(Shape::rect& rect);
+	CollisionComponent(Shape::capsule& capsule); 
 
 	virtual ~CollisionComponent() override;
 
@@ -33,9 +33,11 @@ public:
 	virtual void Update(float deltaTime) override;
 
 	Shape *shape;
-	Shape::circle* circle = nullptr;
-	Shape::rect* rect = nullptr;
-	Shape::capsule * capsule = nullptr;
+	Shape::circle* circle;
+	Shape::rect* rect;
+	Shape::capsule* capsule;
+
+	
 
 	
 protected:

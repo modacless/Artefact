@@ -1,7 +1,7 @@
 #pragma once
 #include <cmath>
 #include <SFML/System/Vector2.hpp>
-#include "math.h"
+#include <math.h>
 #include <vector>
 
 class Shape
@@ -27,22 +27,33 @@ public:
 			"3" ---	"2"
 		
 		*/
+
 		rect() {};
 		rect(sf::Vector2f center, sf::Vector2f axisSize) {
 
 			points = new sf::Vector2f[4]();
+			this->center = center;
 
-
-			points[0] = sf::Vector2f(-axisSize.x * 0.5f, axisSize.y * 0.5f);
-			points[1] = sf::Vector2f(axisSize.x * 0.5f, axisSize.y * 0.5f);
-			points[2] = sf::Vector2f(axisSize.x * 0.5f, -axisSize.y * 0.5f);
-			points[3] = sf::Vector2f(-axisSize.x * 0.5f, -axisSize.y * 0.5f);
-		
+			points[0] = sf::Vector2f(center.x-axisSize.x * 0.5f, center.y+ axisSize.y * 0.5f);
+			points[1] = sf::Vector2f(center.x+axisSize.x * 0.5f, center.x+axisSize.y * 0.5f);
+			points[2] = sf::Vector2f(center.x+axisSize.x * 0.5f, center.x -axisSize.y * 0.5f);
+			points[3] = sf::Vector2f(center.x-axisSize.x * 0.5f, center.x -axisSize.y * 0.5f);
+ 			this->axisSize = axisSize;
 		}
 
 		~rect()
 		{
-			delete points;
+			//delete points;
+		}
+
+
+		void updateRectangle(sf::Vector2f center)
+		{
+			this->center = center;
+			points[0] = sf::Vector2f(center.x-axisSize.x * 0.5f, center.y+ axisSize.y * 0.5f);
+			points[1] = sf::Vector2f(center.x+axisSize.x * 0.5f, center.x+axisSize.y * 0.5f);
+			points[2] = sf::Vector2f(center.x+axisSize.x * 0.5f, center.x -axisSize.y * 0.5f);
+			points[3] = sf::Vector2f(center.x-axisSize.x * 0.5f, center.x -axisSize.y * 0.5f);
 		}
 
 	};
@@ -75,7 +86,6 @@ public:
 	float distanceSquarred(const T struct_a, const U struc_b);
 
 
-
 	bool collideCirclevsCirle(circle circle_a, circle circle_b);
 	bool collideCirclevsrect(circle circle, rect rect);
 	bool collideCirclevsCapsule(circle circle, capsule capsule);
@@ -89,8 +99,8 @@ public:
 
 protected:
 
-
-	
+	bool pointIsInRect(sf::Vector2f point_test, rect *rect_b);
+	float distancePoints(sf::Vector2f point_a, sf::Vector2f point_b);
 };
 
 
