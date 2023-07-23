@@ -16,8 +16,31 @@ public:
 	void Render(sf::RenderWindow& window);
 
 	//List Management
-	void AddGameObject(std::unique_ptr<GameObject> gameObject);
-	void DeleteGameObject(std::unique_ptr<GameObject> gameObject);
+	template<typename C>
+	void AddGameObject(C gameObject)
+	{
+		const auto collisionComp = gameObject->GetComponent<CollisionComponent>();
+		if (collisionComp != nullptr)
+		{
+			collisionManager->addCollision(collisionComp);
+
+		}
+
+		gameObject->Start();
+		gameObjects.emplace_back(std::move(gameObject));
+	};
+
+	template<typename C>
+	void DeleteGameObject(C gameObject)
+	{
+		for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it)
+		{
+			it->reset();
+		}
+
+		delete collisionManager;
+		collisionManager = nullptr;
+	}
 
 
 
@@ -28,5 +51,8 @@ protected:
 
 private:
 };
+
+
+
 
 

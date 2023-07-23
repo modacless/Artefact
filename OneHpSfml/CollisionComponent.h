@@ -16,7 +16,7 @@ class CollisionComponent : public IComponent
 {
 
 public:
-
+	CollisionComponent() {};
 	CollisionComponent(Shape::circle circle);
 	CollisionComponent(Shape::rect rect);
 	CollisionComponent(Shape::capsule capsule); 

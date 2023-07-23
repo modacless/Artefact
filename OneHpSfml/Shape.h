@@ -17,7 +17,9 @@ public:
 		// axis is in X, Y size 
 		sf::Vector2f axisSize;  
 
-		std::vector<sf::Vector2f> points;
+		//std::vector<sf::Vector2f> points;
+
+		sf::Vector2f* points;
 		
 		/*		
 			"0"----"1"
@@ -25,13 +27,22 @@ public:
 			"3" ---	"2"
 		
 		*/
-		rect(){}
+		rect() {};
 		rect(sf::Vector2f center, sf::Vector2f axisSize) {
-			points[0] = sf::Vector2f(-axisSize.x*0.5f, axisSize.y * 0.5f);
+
+			points = new sf::Vector2f[4]();
+
+
+			points[0] = sf::Vector2f(-axisSize.x * 0.5f, axisSize.y * 0.5f);
 			points[1] = sf::Vector2f(axisSize.x * 0.5f, axisSize.y * 0.5f);
 			points[2] = sf::Vector2f(axisSize.x * 0.5f, -axisSize.y * 0.5f);
 			points[3] = sf::Vector2f(-axisSize.x * 0.5f, -axisSize.y * 0.5f);
 		
+		}
+
+		~rect()
+		{
+			delete points;
 		}
 
 	};

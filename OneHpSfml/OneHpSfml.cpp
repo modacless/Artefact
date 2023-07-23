@@ -7,6 +7,7 @@
 #include "imGUI/imgui.h"
 #include "imGUI/imgui-SFML.h"
 #include "Scene.h"
+#include "TileObjectCollision.h"
 
 
 void test()
@@ -25,6 +26,20 @@ int main()
 
     Scene* scene = new Scene("../Levels/Devs/FirstMap/Level_0.ldtkl");
 
+    //TileObjectCollision collisionTest = TileObjectCollision("test");
+
+    //GameObject coll1 = GameObject("Col");
+    //coll1.SetPosition(sf::Vector2<float>(100.f, 100.f));
+    //Shape::rect rect1 = Shape::rect(sf::Vector2f(100.f, 100.f), sf::Vector2f(1.f, 1.f));
+    //CollisionComponent collision1 = CollisionComponent(rect1);
+    //coll1.AddComponent(collision1);
+
+    TileObjectCollision coll = TileObjectCollision("Test");
+
+
+    SpriteComponent sprite1 = SpriteComponent("../Assets/Sprites/Test/Collisiontest.png");
+    //coll1.AddComponent(sprite1);
+
     GameObject objtest = GameObject(std::string("test"));
     SpriteComponent sprite = SpriteComponent("../Assets/Sprites/Test/Debug.png");
     //InputComponent input = InputComponent(PlayerInput(),0.2f);
@@ -40,6 +55,7 @@ int main()
 
     ObjectManager objectsManager;
     objectsManager.AddGameObject(std::make_unique<GameObject>(objtest));
+    objectsManager.AddGameObject(std::make_unique<TileObjectCollision>(coll));
 
 
     while (window.isOpen())
