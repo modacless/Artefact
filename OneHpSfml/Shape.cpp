@@ -17,7 +17,7 @@ bool Shape::collideCirclevsCapsule(circle circle, capsule capsule)
 }
 
 
-bool Shape::collideRectvsRect(rect rect_a, rect rect_b)
+bool Shape::collideRectvsRect(rect* rect_a, rect* rect_b)
 {
 	
 	return false;

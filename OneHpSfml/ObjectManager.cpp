@@ -8,6 +8,17 @@ ObjectManager::ObjectManager()
 	collisionManager = new CollisionManager();
 }
 
+ObjectManager::~ObjectManager()
+{
+	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it)
+	{
+		it->reset();
+	}
+
+	delete collisionManager;
+	collisionManager = nullptr;
+}
+
 
 void ObjectManager::Update(float deltaTime)
 {

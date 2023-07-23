@@ -1,14 +1,14 @@
 #include "Object.h"
 
-
-GameObject::GameObject(std::string name)
+GameObject::GameObject(std::string name, sf::Vector2f position)
 {
 	this->name = name;
+	this->setPosition(position);
 }
 
 GameObject::~GameObject() 
 {
-	components.clear();
+	components.clear(); //Memory leak ?
 }
 
 void GameObject::Start()

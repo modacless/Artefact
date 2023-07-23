@@ -8,7 +8,8 @@ class TileObjectCollision: public GameObject
 {
 public:
 
-	TileObjectCollision(std::string name);
+	TileObjectCollision(std::string name, sf::Vector2f position);
+	~TileObjectCollision();
 
 };
 

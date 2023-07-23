@@ -8,6 +8,7 @@
 #include "imGUI/imgui-SFML.h"
 #include "Scene.h"
 #include "TileObjectCollision.h"
+#include <iostream>
 
 
 void test()
@@ -17,6 +18,7 @@ void test()
 }
 
 int main()
+
 {
     //Create Window
     sf::RenderWindow window(sf::VideoMode(512, 512), "SFML works!");
@@ -26,36 +28,44 @@ int main()
 
     Scene* scene = new Scene("../Levels/Devs/FirstMap/Level_0.ldtkl");
 
+    ObjectManager* objectsManager = new ObjectManager();
     //TileObjectCollision collisionTest = TileObjectCollision("test");
 
-    //GameObject coll1 = GameObject("Col");
-    //coll1.SetPosition(sf::Vector2<float>(100.f, 100.f));
-    //Shape::rect rect1 = Shape::rect(sf::Vector2f(100.f, 100.f), sf::Vector2f(1.f, 1.f));
-    //CollisionComponent collision1 = CollisionComponent(rect1);
-    //coll1.AddComponent(collision1);
 
-    TileObjectCollision coll = TileObjectCollision("Test");
-
+    TileObjectCollision coll = TileObjectCollision("Test",sf::Vector2f(0,0));
+    TileObjectCollision coll2 = TileObjectCollision("Test2", sf::Vector2f(32, 32));
 
     SpriteComponent sprite1 = SpriteComponent("../Assets/Sprites/Test/Collisiontest.png");
-    //coll1.AddComponent(sprite1);
 
-    GameObject objtest = GameObject(std::string("test"));
+    GameObject objtest = GameObject(std::string("test"), sf::Vector2f(100, 100));
     SpriteComponent sprite = SpriteComponent("../Assets/Sprites/Test/Debug.png");
     //InputComponent input = InputComponent(PlayerInput(),0.2f);
     objtest.AddComponent(sprite);
-    //objtest.AddComponent(input);
-
-    objtest.setPosition(100, 100);
     objtest.SetDebugMode(true);
 
-    Shape::circle circle_a = Shape::circle(objtest.getPosition(), 0.5f);
-    CollisionComponent collison = CollisionComponent(circle_a);
-    objtest.AddComponent(collison);
+    objectsManager->AddGameObject(std::make_unique<GameObject>(objtest));
+    objectsManager->AddGameObject(std::make_unique<TileObjectCollision>(coll));
+    objectsManager->AddGameObject(std::make_unique<TileObjectCollision>(coll2));
 
-    ObjectManager objectsManager;
-    objectsManager.AddGameObject(std::make_unique<GameObject>(objtest));
-    objectsManager.AddGameObject(std::make_unique<TileObjectCollision>(coll));
+
+
+    if(coll.GetComponent<CollisionComponent>()->shape->collideRectvsRect(coll.GetComponent<CollisionComponent>()->rect, coll2.GetComponent<CollisionComponent>()->rect))
+    {
+        std::cout << " \n Collision \n";
+
+    }else
+    {
+        std::cout << " \n Pas de Collision \n";
+    }
+
+
+
+    /*Shape::circle circle_a = Shape::circle(objtest.getPosition(), 0.5f);
+    CollisionComponent collison = CollisionComponent(circle_a);
+    objtest.AddComponent(collison);*/
+
+
+
 
 
     while (window.isOpen())
@@ -69,27 +79,28 @@ int main()
                 //delete sprite;
                 window.close();
             }
-            objectsManager.UpdateEvent(event);
+            objectsManager->UpdateEvent(event);
         }
         //Get the delta time
         auto deltaTime = Time.restart();
 
         //Update
         ImGui::SFML::Update(window, deltaTime);
-        objectsManager.Update(deltaTime.asSeconds());
+        objectsManager->Update(deltaTime.asSeconds());
         test();
 
         //Render
         window.clear();
         scene->SceneDraw(window);
         ImGui::SFML::Render(window);
-        objectsManager.Render(window);
+        objectsManager->Render(window);
 
         window.display();
     }
     ImGui::SFML::Shutdown();
 
     delete scene;
+    delete objectsManager;
 
     return 0;
 }

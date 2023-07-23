@@ -1,11 +1,14 @@
 #include "TileObjectCollision.h"
 
-TileObjectCollision::TileObjectCollision(std::string name) : GameObject(name)
+TileObjectCollision::TileObjectCollision(std::string name, sf::Vector2f position) : GameObject(name, position)
 {
-	
-	Shape::rect rect1 = Shape::rect(sf::Vector2f(10, 10), sf::Vector2f(1.f, 1.f));
-	CollisionComponent collision1 = CollisionComponent(rect1);
+	CollisionComponent collision1 = CollisionComponent(new Shape::rect(position , sf::Vector2f(32, 32)));
 	this->AddComponent(collision1);
 	SpriteComponent sprite1 = SpriteComponent("../Assets/Sprites/Test/Collisiontest.png");
 	this->AddComponent(sprite1);
+}
+
+TileObjectCollision::~TileObjectCollision() 
+{
+	components.clear();
 }

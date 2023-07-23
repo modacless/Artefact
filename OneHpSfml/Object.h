@@ -14,7 +14,7 @@ class GameObject : public sf::Transformable
 {
 public:
 
-	GameObject(std::string name);
+	GameObject(std::string name, sf::Vector2f position);
 	~GameObject();
 
 	void Start();
@@ -37,9 +37,6 @@ public:
 
 	//Update all event components
 	void UpdateEvent(sf::Event event);
-
-	//GameObject Logic
-	void SetPosition(sf::Vector2f position);
 
 	//GameObject Parameter
 	void SetDebugMode(bool debug);
@@ -76,24 +73,28 @@ private:
 template<typename T>
 inline void GameObject::AddComponent(T& componentToAdd)
 {
+	componentToAdd->parentObject = this;
 	components.push_back(new T(componentToAdd));
 }
 	
 template<>
 inline void GameObject::AddComponent(SpriteComponent& componentToAdd)
 {
+	componentToAdd.parentObject = this;
 	components.push_back(new SpriteComponent(componentToAdd));
 }
 
 template<>
 inline void GameObject::AddComponent(InputComponent& componentToAdd)
 {
+	componentToAdd.parentObject = this;
 	components.push_back(new InputComponent(componentToAdd));
 }
 
 template<>
 inline void GameObject::AddComponent(CollisionComponent& componentToAdd)
 {
+	componentToAdd.parentObject = this;
 	components.push_back(new CollisionComponent(componentToAdd));
 }
 

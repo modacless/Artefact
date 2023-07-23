@@ -11,6 +11,7 @@ public:
 	//Base
 	ObjectManager();
 	~ObjectManager();
+
 	void Update(float deltaTime);
 	void UpdateEvent(sf::Event event);
 	void Render(sf::RenderWindow& window);
@@ -25,7 +26,6 @@ public:
 			collisionManager->addCollision(collisionComp);
 
 		}
-
 		gameObject->Start();
 		gameObjects.emplace_back(std::move(gameObject));
 	};
@@ -33,13 +33,7 @@ public:
 	template<typename C>
 	void DeleteGameObject(C gameObject)
 	{
-		for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it)
-		{
-			it->reset();
-		}
 
-		delete collisionManager;
-		collisionManager = nullptr;
 	}
 
 

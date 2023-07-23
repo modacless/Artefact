@@ -73,19 +73,22 @@ public:
 	
 	template<typename T, typename U>
 	float distanceSquarred(const T struct_a, const U struc_b);
-	
 
 
-protected:
 
 	bool collideCirclevsCirle(circle circle_a, circle circle_b);
 	bool collideCirclevsrect(circle circle, rect rect);
 	bool collideCirclevsCapsule(circle circle, capsule capsule);
 
-	bool collideRectvsRect(rect rect_a, rect rect_b);
+	bool collideRectvsRect(rect* rect_a, rect* rect_b);
 	bool collideRectvsCapsule(rect rect, capsule capsule);
 
 	bool collideCapsulevsCapsule(capsule capsule_a, capsule capsule_b);
+	
+
+
+protected:
+
 
 	
 };
