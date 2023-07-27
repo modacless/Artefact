@@ -11,5 +11,9 @@ public:
 
 	void addCollision(CollisionComponent* collision);
 	void removeCollision(CollisionComponent* collision);
+
+	std::vector<CollisionComponent*>  checkCollision(CollisionComponent* collision);
+	
+	
 };
 

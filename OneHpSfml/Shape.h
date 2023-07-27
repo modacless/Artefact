@@ -3,6 +3,7 @@
 #include <SFML/System/Vector2.hpp>
 #include <math.h>
 #include <vector>
+#include "customMaths.h"
 
 class Shape
 {

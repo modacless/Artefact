@@ -18,9 +18,9 @@ class CollisionComponent : public IComponent
 public:
 	CollisionComponent() {};
 	CollisionComponent(Shape* shape);
-	CollisionComponent(Shape::circle& circle);
+	CollisionComponent(Shape::circle* circle);
 	CollisionComponent(Shape::rect* rect);
-	CollisionComponent(Shape::capsule& capsule); 
+	CollisionComponent(Shape::capsule* capsule); 
 
 	virtual ~CollisionComponent() override;
 

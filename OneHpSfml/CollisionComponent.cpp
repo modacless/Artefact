@@ -13,7 +13,7 @@ CollisionComponent::CollisionComponent(Shape* shape)
 
 }
 
-CollisionComponent::CollisionComponent(Shape::circle& circle)
+CollisionComponent::CollisionComponent(Shape::circle* circle)
 {
 	//this->circle = new Shape::circle(circle);
 	shapePossibility = ShapePossibility::circle;
@@ -25,7 +25,7 @@ CollisionComponent::CollisionComponent(Shape::rect* rect)
 	shapePossibility = ShapePossibility::rect;
 }
 
-CollisionComponent::CollisionComponent(Shape::capsule& capsule)
+CollisionComponent::CollisionComponent(Shape::capsule* capsule)
 {
 	//this->capsule = new Shape::capsule(capsule);
 	shapePossibility = ShapePossibility::capsule;
