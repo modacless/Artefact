@@ -153,6 +153,7 @@
     <ClCompile Include="CollisionComponent.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="customMaths.cpp" />
     <ClCompile Include="FactoryComponent.cpp" />
     <ClCompile Include="imGUI\imgui-SFML.cpp" />
     <ClCompile Include="imGUI\imgui.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="CollisionComponent.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="customMaths.h" />
     <ClInclude Include="FactoryComponent.h" />
     <ClInclude Include="imGUI\imconfig-SFML.h" />
     <ClInclude Include="imGUI\imconfig.h" />

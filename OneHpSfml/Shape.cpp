@@ -2,27 +2,33 @@
 
 bool Shape::pointIsInRect(sf::Vector2f point_test, rect* rect_b) {
 	bool isInside;
-	float dim_sum = 0;
-	float half = 0.5f;
-	float B, C;
-//TODO: fix 
-	for (unsigned int i = 0; i < 3; i++) {
-		
-		B = distancePoints(rect_b->points[i], rect_b->points[i + 1]);
-		C = distancePoints(point_test, (rect_b->points[i + 1] + rect_b->points[i]) * half);
-		
-		dim_sum += B * C;
+	
+	float p0, p1, p2, p3;
+	sf::Vector2f edge;
+	sf::Vector2f OT;
 
-	}
-	B = distancePoints(rect_b->points[3], rect_b->points[0]);
-	C = distancePoints(point_test, (rect_b->points[3] + rect_b->points[0]) * half);
-	dim_sum += B * C;
+	edge = (rect_b->points[1] - rect_b->points[0]);
+	OT = (point_test - rect_b->points[0]);
+	p0 = customMaths::dotVector(edge, OT);
 
-	dim_sum *= half;
-	isInside = (dim_sum <= rect_b->axisSize.x * rect_b->axisSize.y);
+	edge = (rect_b->points[1] - rect_b->points[2]);
+	OT = (point_test - rect_b->points[0]);
+	p1= customMaths::dotVector(edge, OT);
+
+	edge = (rect_b->points[2] - rect_b->points[3]);
+	OT = (point_test - rect_b->points[0]);
+	p2 = customMaths::dotVector(edge, OT);
+
+	edge = (rect_b->points[0] - rect_b->points[3]);
+	OT = (point_test - rect_b->points[0]);
+	p3 = customMaths::dotVector(edge, OT);
+	
+	isInside = p0 * p1 > 0 && p1 * p2 > 0 && p2 * p3 > 0;
 
 	return isInside;
 }
+
+
 
 float Shape::distancePoints(sf::Vector2f point_a, sf::Vector2f point_b)
 {

@@ -1,7 +1,19 @@
 #include "CollisionComponent.h"
 #include "Object.h"
 
-CollisionComponent::CollisionComponent(Shape::circle& circle)
+CollisionComponent::CollisionComponent(Shape* shape)
+{
+	this->shape = shape;
+	
+	if(shape->rectangle != nullptr)
+	{
+		shapePossibility = ShapePossibility::rect;
+		
+	}
+
+}
+
+CollisionComponent::CollisionComponent(Shape::circle* circle)
 {
 	this->circle = new Shape::circle(circle);
 	shape = new Shape();
@@ -15,7 +27,7 @@ CollisionComponent::CollisionComponent(Shape::rect& rect)
 	shapePossibility = ShapePossibility::rect;
 }
 
-CollisionComponent::CollisionComponent(Shape::capsule& capsule)
+CollisionComponent::CollisionComponent(Shape::capsule* capsule)
 {
 	this->capsule = new Shape::capsule(capsule);
 	shape = new Shape();

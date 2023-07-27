@@ -33,7 +33,7 @@ int main()
 
 
     TileObjectCollision coll =  TileObjectCollision("Test",sf::Vector2f(0,0));
-    TileObjectCollision coll2 = TileObjectCollision("Test2", sf::Vector2f(64, 64));
+    TileObjectCollision coll2 = TileObjectCollision("Test2", sf::Vector2f(31, 32));
 
     SpriteComponent sprite1 = SpriteComponent("../Assets/Sprites/Test/Collisiontest.png");
 

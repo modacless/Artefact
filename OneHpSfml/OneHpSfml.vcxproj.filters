@@ -141,7 +141,7 @@
     <ClCompile Include="TileObjectCollision.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="CameraComponent.cpp">
+    <ClCompile Include="customMaths.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -225,6 +225,9 @@
       <Filter>Fichiers d%27en-tête\Engine\Tools</Filter>
     </ClInclude>
     <ClInclude Include="TileObjectCollision.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="customMaths.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="CameraComponent.h">
