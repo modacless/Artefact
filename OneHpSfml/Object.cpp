@@ -6,6 +6,11 @@ GameObject::GameObject(std::string name, sf::Vector2f position)
 	this->setPosition(position);
 }
 
+GameObject::~GameObject() 
+{
+	components.clear(); //Memory leak ?
+}
+
 void GameObject::Start()
 {
 	for (auto& component : components)

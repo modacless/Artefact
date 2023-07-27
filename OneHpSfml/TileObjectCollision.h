@@ -11,7 +11,5 @@ public:
 	TileObjectCollision(std::string name, sf::Vector2f position);
 	~TileObjectCollision();
 
-	Shape* shape;
-	CollisionComponent* collisonComponent;
 };
 

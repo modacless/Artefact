@@ -33,7 +33,7 @@ int main()
 
 
     TileObjectCollision coll =  TileObjectCollision("Test",sf::Vector2f(0,0));
-    TileObjectCollision coll2 = TileObjectCollision("Test2", sf::Vector2f(1, 0));
+    TileObjectCollision coll2 = TileObjectCollision("Test2", sf::Vector2f(64, 64));
 
     SpriteComponent sprite1 = SpriteComponent("../Assets/Sprites/Test/Collisiontest.png");
 
@@ -47,27 +47,25 @@ int main()
     objectsManager->AddGameObject(std::make_unique<TileObjectCollision>(coll));
     objectsManager->AddGameObject(std::make_unique<TileObjectCollision>(coll2));
 
+    Shape::rect *t1 = coll.GetComponent<CollisionComponent>()->rect;
+    Shape::rect *t2 = coll2.GetComponent<CollisionComponent>()->rect;
 
-    if(coll.GetComponent<CollisionComponent>()->shape != nullptr)
+    if (coll.GetComponent<CollisionComponent>()->shape->collideRectvsRect(t1, t2))
     {
-        Shape::rect* t1 = coll.GetComponent<CollisionComponent>()->shape->rectangle;
-        Shape::rect* t2 = coll2.GetComponent<CollisionComponent>()->shape->rectangle;
+        std::cout << " \n Collision \n";
 
-
-        if (coll.GetComponent<CollisionComponent>()->shape->collideRectvsRect(t1, t2))
-        {
-            std::cout << " \n Collision \n";
-
-        }
-        else
-        {
-            std::cout << " \n Pas de Collision \n";
-        }
+    }else
+    {
+        std::cout << " \n Pas de Collision \n";
     }
+
+
 
     /*Shape::circle circle_a = Shape::circle(objtest.getPosition(), 0.5f);
     CollisionComponent collison = CollisionComponent(circle_a);
     objtest.AddComponent(collison);*/
+
+
 
 
 
